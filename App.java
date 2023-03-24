@@ -6,17 +6,17 @@ public class App {
         app.iniciar();
     }
 
-    private Tienda tienda;
-    private int numeroDeClientes = 0;
-    private int numeroDeClientesDespachados = 0;
-    private int segundosEnEjecución = 0;
+    protected Tienda tienda;
+    protected int numeroDeClientes = 0;
+    protected int numeroDeClientesDespachados = 0;
+    protected int segundosEnEjecución = 0;
 
-    private App() {
+    protected App() {
         tienda = new Tienda(10);
     }
 
     // Inicia la simulación
-    private void iniciar() {
+    protected void iniciar() {
         Random random = new Random();
         // llegan clientes de forma aleatoria a la tienda y
         // se añaden clientes de forma aleatoria a las cajas:
@@ -55,7 +55,7 @@ public class App {
     }
 
     // Añade un cliente a la caja que recibe como parámetro:
-    private void añadirClienteACaja(int numeroDeCaja) {
+    protected void añadirClienteACaja(int numeroDeCaja) {
         // El cliente es de tipo Integer, su valor son números
         // sucesivos empezando por 1.
         tienda.añadirClienteACaja(numeroDeCaja, ++numeroDeClientes);
@@ -64,7 +64,7 @@ public class App {
     }
 
     // Añade un cliente a la caja con menos clientes:
-    private void añadirClienteACajaConMenosClientes() {
+    protected void añadirClienteACajaConMenosClientes() {
         int numeroDeCajaConMenosClientes = 0;
         int numeroDeClientesDeCajaConMenosClientes = (tienda.getCaja(0).getNumeroDeClientes());
 
@@ -81,14 +81,14 @@ public class App {
     }
 
     // Sale un cliente de la caja que recibe como parámetro:
-    private void eliminarClienteDeCaja(int numeroDeCaja) {
+    protected void eliminarClienteDeCaja(int numeroDeCaja) {
         tienda.getCaja(numeroDeCaja).eliminarCliente();
         System.out.println("Ha salido un cliente de la caja " + numeroDeCaja);
         numeroDeClientesDespachados++;
     }
 
     // Sale un cliente de una caja aleatoria:
-    private void eliminarClienteDeCajaAleatoria() {
+    protected void eliminarClienteDeCajaAleatoria() {
         Random random = new Random();
         int numeroDeCaja = random.nextInt(tienda.getNumeroDeCajas());
         // Si la caja está vacía, se sale del método:
@@ -99,7 +99,7 @@ public class App {
     }
 
     // Pausa la ejecución del programa durante el tiempo que recibe como parámetro:
-    private void pausar(int segundos) {
+    protected void pausar(int segundos) {
         try {
             Thread.sleep(segundos * 1000);
         } catch (InterruptedException e) {
@@ -108,7 +108,7 @@ public class App {
     }
 
     // limpia la consola:
-    private void limpiarConsola() {
+    protected void limpiarConsola() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
