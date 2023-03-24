@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class App {
     public static void main(String[] args) {
-        App app = new App();
+        App app = new App(5);
         app.iniciar();
     }
 
@@ -11,8 +11,8 @@ public class App {
     protected int numeroDeClientesDespachados = 0;
     protected int segundosEnEjecución = 0;
 
-    protected App() {
-        tienda = new Tienda(10);
+    protected App(int numeroDeCajas) {
+        tienda = new Tienda(numeroDeCajas);
     }
 
     // Inicia la simulación
