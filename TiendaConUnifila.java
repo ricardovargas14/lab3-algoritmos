@@ -11,16 +11,16 @@ import java.util.Random;
  * se forman todos los clientes a esperar a que se
  * atiendan los que ya están en las cajas.
  */
-public class AppUnifila extends App {
+public class TiendaConUnifila extends TiendaConFilaNormal {
     public static void main(String[] args) {
-        AppUnifila app = new AppUnifila(1);
+        TiendaConUnifila app = new TiendaConUnifila(1);
         app.iniciar();
     }
 
     private Cola<Integer> fila;
     private final int MÁXIMO_DE_CLIENTES_EN_COLA = 2;
 
-    public AppUnifila(int numeroDeCajas) {
+    public TiendaConUnifila(int numeroDeCajas) {
         super(numeroDeCajas);
         fila = new Cola<Integer>();
     }
