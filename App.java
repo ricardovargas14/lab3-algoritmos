@@ -31,7 +31,6 @@ public class App {
             // caja con menos clientes:
             
             pausar(1);
-            segundosEnEjecución++;
             
             if (random.nextDouble() < 0.5) {
                 añadirClienteACajaConMenosClientes();
@@ -43,7 +42,6 @@ public class App {
             System.out.println(this);
             
             pausar(1);
-            segundosEnEjecución++;
             
             // Se genera un numero aleatorio,
             // si es menor que 0.5, sale un cliente de una caja
@@ -105,6 +103,7 @@ public class App {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        segundosEnEjecución += segundos;
     }
 
     // limpia la consola:
