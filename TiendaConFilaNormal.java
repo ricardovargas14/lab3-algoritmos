@@ -1,8 +1,8 @@
 import java.util.Random;
 
-public class App {
+public class TiendaConFilaNormal {
     public static void main(String[] args) {
-        App app = new App(5);
+        TiendaConFilaNormal app = new TiendaConFilaNormal(5);
         app.iniciar();
     }
 
@@ -11,7 +11,7 @@ public class App {
     protected int numeroDeClientesDespachados = 0;
     protected int segundosEnEjecución = 0;
 
-    protected App(int numeroDeCajas) {
+    protected TiendaConFilaNormal(int numeroDeCajas) {
         tienda = new Tienda(numeroDeCajas);
     }
 
