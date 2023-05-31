@@ -10,17 +10,23 @@ public class TiendaConFilaNormal {
     protected int numeroDeClientes = 0;
     protected int numeroDeClientesDespachados = 0;
     protected int segundosEnEjecución = 0;
+    protected boolean detener;
 
     protected TiendaConFilaNormal(int numeroDeCajas) {
         tienda = new Tienda(numeroDeCajas);
+        
     }
 
     // Inicia la simulación
     protected void iniciar() {
+        detener = false;
         Random random = new Random();
         // llegan clientes de forma aleatoria a la tienda y
         // se añaden clientes de forma aleatoria a las cajas:
         while (true) {
+            if (detener) {
+                break;
+            }
             // Se limpia la consola y se imprime el estado actual
             // de la tienda:
             limpiarConsola();
@@ -50,6 +56,10 @@ public class TiendaConFilaNormal {
                 eliminarClienteDeCajaAleatoria();
             }
         }
+    }
+
+    public void detener() {
+        detener = true;
     }
 
     // Añade un cliente a la caja que recibe como parámetro:
@@ -122,4 +132,22 @@ public class TiendaConFilaNormal {
         resultado += "Tiempo en ejecución: " + segundosEnEjecución;
         return resultado;
     }
+
+    public Tienda getTienda() {
+        return tienda;
+    }
+
+    public int getNumeroDeClientes() {
+        return numeroDeClientes;
+    }
+
+    public int getNumeroDeClientesDespachados() {
+        return numeroDeClientesDespachados;
+    }
+
+    public int getSegundosEnEjecución() {
+        return segundosEnEjecución;
+    }
+
+    
 }

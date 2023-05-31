@@ -81,6 +81,9 @@ public class TiendaConUnifila extends TiendaConFilaNormal {
         // llegan clientes de forma aleatoria a la tienda y
         // se añaden clientes de forma aleatoria a las cajas:
         while (true) {
+            if (detener) {
+                break;
+            }
             // Se limpia la consola y se imprime el estado actual
             // de la tienda:
             limpiarConsola();
@@ -116,6 +119,8 @@ public class TiendaConUnifila extends TiendaConFilaNormal {
             if (random.nextDouble() < 0.5) {
                 eliminarClienteDeCajaAleatoria();
             }
+
+
         }
     }
 
@@ -124,6 +129,15 @@ public class TiendaConUnifila extends TiendaConFilaNormal {
         String s = "Fila principal: " + fila + "\n";
         return s + super.toString();
     }
+
+    public Cola<Integer> getFila() {
+        return fila;
+    }
+
+    public int getMÁXIMO_DE_CLIENTES_EN_COLA() {
+        return MÁXIMO_DE_CLIENTES_EN_COLA;
+    }
+    
     
     
 }
